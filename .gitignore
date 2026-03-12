@@ -416,3 +416,5 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+/src/RiverCitySyndicate.API.Web/Properties/launchSettings.json
+/src/RiverCitySyndicate.API.Web/RiverCitySyndicate.API.Web.xml

@@ -1,0 +1,27 @@
+-- SQL Server
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Videos](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Html] [varchar](1000) NOT NULL,
+	[Description] [varchar](1000) NOT NULL,
+	[Added] [datetime] NOT NULL,
+	[Active] [bit] NOT NULL,
+ CONSTRAINT [PK_Videos] PRIMARY KEY CLUSTERED
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Videos] ADD  CONSTRAINT [DF_Videos_Added]  DEFAULT (getdate()) FOR [Added]
+GO
+
+ALTER TABLE [dbo].[Videos] ADD  CONSTRAINT [DF_Videos_Active]  DEFAULT ((1)) FOR [Active]
+GO
+
+
