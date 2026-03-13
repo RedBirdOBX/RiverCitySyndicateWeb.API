@@ -85,9 +85,6 @@ builder.Services.AddSwaggerGen((setupAction) =>
 // ms sql
 builder.Services.AddDbContext<RiverCitySyndicateDbContext>(dbContextOptions => dbContextOptions.UseSqlServer(connString));
 
-// postgres
-//builder.Services.AddDbContext<ElleChristineDbContext>(dbContextOptions => dbContextOptions.UseNpgsql(connString));
-
 builder.Services.AddScoped<IRiverCitySyndicateRepository, RiverCitySyndicateRepository>();
 builder.Services.AddScoped<IShowProcessor, ShowProcessor>();
 builder.Services.AddScoped<IPhotoProcessor, PhotoProcessor>();
@@ -108,7 +105,7 @@ builder.Services.AddCors(options =>
             .WithOrigins(
                 "http://127.0.0.1:5500",
                 "http://localhost:5500",
-                "http://localhost:4200/",
+                "http://localhost:4200",
                 "https://calm-plant-0f7005e0f.4.azurestaticapps.net",
                 "https://www.rivercitysyndicate.com"
             )

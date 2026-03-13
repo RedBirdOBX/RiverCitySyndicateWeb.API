@@ -12,6 +12,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RiverCitySyndicate.API.Dtos", "RiverCitySyndicate.API.Dtos\RiverCitySyndicate.API.Dtos.csproj", "{BCEF56F0-DEFA-4351-B039-339E2C0488BD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{CD56516F-377E-4B3C-A1C9-1FF1F71CF376}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sql-Scripts", "Sql-Scripts", "{6F9EAC1D-5B66-4B14-9B76-C2292CB5EECC}"
 	ProjectSection(SolutionItems) = preProject
