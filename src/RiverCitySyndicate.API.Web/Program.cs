@@ -107,6 +107,7 @@ builder.Services.AddCors(options =>
                 "http://localhost:5500",
                 "http://localhost:4200",
                 "https://calm-plant-0f7005e0f.4.azurestaticapps.net",
+                "https://purple-sea-0b30f9b0f.1.azurestaticapps.net/",
                 "https://www.rivercitysyndicate.com"
             )
             .AllowAnyHeader()
