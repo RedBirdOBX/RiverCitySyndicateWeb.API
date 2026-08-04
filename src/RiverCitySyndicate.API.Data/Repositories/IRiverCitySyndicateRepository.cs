@@ -12,9 +12,13 @@ public interface IRiverCitySyndicateRepository
 
     Task<Show?> GetShowAsync(int showId);
 
+    Task<Show?> GetShowBySlugAsync(string slug);
+
     Task<Show?> GetNextShowAsync();
 
     Task<bool> DoesShowExistAsync(int showId);
+
+    Task<bool> DoesShowExistBySlugAsync(string slug);
 
     // photos
     Task<IEnumerable<Photo>> GetPhotosAsync(bool showAll);

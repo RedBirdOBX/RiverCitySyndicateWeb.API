@@ -118,6 +118,36 @@ public class ShowsController : ControllerBase
     }
 
     /// <summary>
+    /// returns single show by slug
+    /// </summary>
+    /// <param name="slug"></param>
+    /// <returns>ShowDto</returns>
+    /// <example>{baseUrl}/api/shows/slug/{slug}</example>
+    /// <response code="200">returns requested show</response>
+    [HttpGet("slug/{slug}", Name = "GetShowBySlug")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<ShowDto>> GetShowBySlug(string slug)
+    {
+        try
+        {
+            if (!await _processor.DoesShowExistBySlugAsync(slug))
+            {
+                return NotFound($"show {slug} not found.");
+            }
+
+            var showDto = await _processor.GetShowBySlugAsync(slug) ?? new ShowDto();
+            showDto = UriLinkHelper.CreateLinksForShow(HttpContext.Request, showDto);
+            return Ok(showDto);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Error in {nameof(GetShow)}: {ex}");
+            return StatusCode(500, $"An application error occurred. {ex}");
+        }
+    }
+
+    /// <summary>
     /// returns next upcoming show
     /// </summary>
     /// <returns>ShowDto</returns>

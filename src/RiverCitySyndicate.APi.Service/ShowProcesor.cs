@@ -80,6 +80,27 @@ public class ShowProcessor : IShowProcessor
     }
 
     /// <summary>
+    /// gets single show by slug
+    /// </summary>
+    /// <param name="slug"></param>
+    /// <returns>ShotDto</returns>
+    public async Task<ShowDto?> GetShowBySlugAsync(string slug)
+    {
+        try
+        {
+            var show = await _repository.GetShowBySlugAsync(slug);
+
+            var results = _mapper.Map<ShowDto>(show);
+            return results;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Error in {nameof(GetShowAsync)}", ex);
+            throw;
+        }
+    }
+
+    /// <summary>
     /// gets next upcoming show
     /// </summary>
     /// <returns>ShowDto</returns>
@@ -106,5 +127,15 @@ public class ShowProcessor : IShowProcessor
     public async Task<bool> DoesShowExistAsync(int showId)
     {
         return await _repository.DoesShowExistAsync(showId);
+    }
+
+    /// <summary>
+    /// checks to see if slug is legit
+    /// </summary>
+    /// <param name="slug"></param>
+    /// <returns>bool</returns>
+    public async Task<bool> DoesShowExistBySlugAsync(string slug)
+    {
+        return await _repository.DoesShowExistBySlugAsync(slug);
     }
 }

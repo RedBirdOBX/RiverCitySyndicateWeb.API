@@ -13,6 +13,13 @@ public interface IShowProcessor
     Task<ShowDto?> GetShowAsync(int showId);
 
     /// <summary>
+    /// gets a single show by slug
+    /// </summary>
+    /// <param name="slug"></param>
+    /// <returns>ShowDto</returns>
+    Task<ShowDto?> GetShowBySlugAsync(string slug);
+
+    /// <summary>
     /// returns a list of shows
     /// </summary>
     /// <returns>collection of ShowDtos</returns>
@@ -37,4 +44,11 @@ public interface IShowProcessor
     /// <param name="showId"></param>
     /// <returns>bool</returns>
     Task<bool> DoesShowExistAsync(int showId);
+
+    /// <summary>
+    /// checks to see if slug is legit
+    /// </summary>
+    /// <param name="slug"></param>
+    /// <returns>bool</returns>
+    Task<bool> DoesShowExistBySlugAsync(string slug);
 }

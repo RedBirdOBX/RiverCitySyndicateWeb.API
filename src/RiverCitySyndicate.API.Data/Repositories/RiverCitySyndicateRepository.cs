@@ -74,6 +74,12 @@ public class RiverCitySyndicateRepository : IRiverCitySyndicateRepository
         return show;
     }
 
+    public async Task<Show?> GetShowBySlugAsync(string slug)
+    {
+        var show = await _dbContext.Shows.Where(s => s.Slug.ToLower() == slug.ToLower()).FirstOrDefaultAsync();
+        return show;
+    }
+
     public async Task<Show?> GetNextShowAsync()
     {
         var shows = await _dbContext.Shows.Where(s => s.Active == true).ToListAsync();
@@ -85,6 +91,11 @@ public class RiverCitySyndicateRepository : IRiverCitySyndicateRepository
     public async Task<bool> DoesShowExistAsync(int showId)
     {
         return await _dbContext.Shows.AnyAsync(s => s.Id == showId);
+    }
+
+    public async Task<bool> DoesShowExistBySlugAsync(string slug)
+    {
+        return await _dbContext.Shows.AnyAsync(s => s.Slug.ToLower() == slug.ToLower());
     }
 
     // photos

@@ -20,6 +20,11 @@ public class ShowDto : LinkedResourcesDto
     /// <summary>
     /// Title of show
     /// </summary>
+    public string Slug { get; set; }
+
+    /// <summary>
+    /// Title of show
+    /// </summary>
     public string Title { get; set; }
 
     /// <summary>
