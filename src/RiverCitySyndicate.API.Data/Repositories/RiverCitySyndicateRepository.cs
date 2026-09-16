@@ -150,6 +150,21 @@ public class RiverCitySyndicateRepository : IRiverCitySyndicateRepository
         return await _dbContext.Videos.AnyAsync(v => v.Id == videoId);
     }
 
+    // songs
+    public async Task<IEnumerable<Song>> GetSongsAsync(bool showAll)
+    {
+        var results = new List<Song>();
+        if (showAll)
+        {
+            results = await _dbContext.Songs.OrderBy(s => s.Title).ToListAsync();
+        }
+        else
+        {
+            results = await _dbContext.Songs.Where(s => s.Active == true).OrderBy(s => s.Title).ToListAsync();
+        }
+        return results;
+    }
+
     // global
     public async Task<bool> SaveChangesAsync()
     {

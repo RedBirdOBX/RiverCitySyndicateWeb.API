@@ -15,4 +15,6 @@ public class RiverCitySyndicateDbContext : DbContext
     public DbSet<Photo> Photos { get; set; }
 
     public DbSet<Video> Videos { get; set; }
+
+    public DbSet<Song> Songs { get; set; }
 }

@@ -87,6 +87,7 @@ builder.Services.AddDbContext<RiverCitySyndicateDbContext>(dbContextOptions => d
 
 builder.Services.AddScoped<IRiverCitySyndicateRepository, RiverCitySyndicateRepository>();
 builder.Services.AddScoped<IShowProcessor, ShowProcessor>();
+builder.Services.AddScoped<ISongProcessor, SongProcessor>();
 builder.Services.AddScoped<IPhotoProcessor, PhotoProcessor>();
 builder.Services.AddScoped<IVideoProcessor, VideoProcessor>();
 builder.Services.AddSingleton<FileExtensionContentTypeProvider>();

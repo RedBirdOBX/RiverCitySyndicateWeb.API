@@ -33,4 +33,7 @@ public interface IRiverCitySyndicateRepository
     Task<Video?> GetVideoAsync(int videoId);
 
     Task<bool> DoesVideoExistAsync(int videoId);
+
+    // songs
+    Task<IEnumerable<Song>> GetSongsAsync(bool showAll);
 }
